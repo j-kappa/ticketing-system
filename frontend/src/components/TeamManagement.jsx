@@ -256,7 +256,7 @@ export default function TeamManagement() {
                 <div className="mt-4 pt-4 border-t">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Ticket className="h-4 w-4" />
-                    <span>{member.open_tickets || 0} open tickets</span>
+                    <span><span className="font-mono">{member.open_tickets || 0}</span> open tickets</span>
                   </div>
                 </div>
               </CardContent>

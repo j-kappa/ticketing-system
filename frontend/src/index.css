@@ -1,61 +1,61 @@
 @import "tailwindcss";
 
-/* tweakcn theme - Clean professional look */
+/* tweakcn theme - Clean professional look with green primary */
 :root {
   --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --foreground: 150 10% 10%;
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: 150 10% 10%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --popover-foreground: 150 10% 10%;
+  --primary: 152 60% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 150 15% 95%;
+  --secondary-foreground: 150 10% 15%;
+  --muted: 150 10% 95%;
+  --muted-foreground: 150 5% 45%;
+  --accent: 150 15% 93%;
+  --accent-foreground: 150 10% 15%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
+  --border: 150 10% 90%;
+  --input: 150 10% 90%;
+  --ring: 152 60% 36%;
   --radius: 0.5rem;
-  
+
   /* Status colors */
-  --status-new: 217.2 91.2% 59.8%;
+  --status-new: 152 60% 36%;
   --status-in-progress: 43.3 96.4% 56.3%;
-  --status-resolved: 142.1 76.2% 36.3%;
-  --status-closed: 215.4 16.3% 46.9%;
-  
+  --status-resolved: 170 60% 40%;
+  --status-closed: 150 5% 50%;
+
   /* Priority colors */
   --priority-urgent: 0 84.2% 60.2%;
   --priority-high: 24.6 95% 53.1%;
   --priority-medium: 43.3 96.4% 56.3%;
-  --priority-low: 215.4 16.3% 46.9%;
+  --priority-low: 150 5% 50%;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --background: 150 15% 5%;
+  --foreground: 150 10% 95%;
+  --card: 150 15% 5%;
+  --card-foreground: 150 10% 95%;
+  --popover: 150 15% 5%;
+  --popover-foreground: 150 10% 95%;
+  --primary: 152 55% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 150 15% 12%;
+  --secondary-foreground: 150 10% 95%;
+  --muted: 150 15% 12%;
+  --muted-foreground: 150 10% 60%;
+  --accent: 150 15% 12%;
+  --accent-foreground: 150 10% 95%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+  --border: 150 15% 15%;
+  --input: 150 15% 15%;
+  --ring: 152 55% 45%;
 }
 
 @theme inline {
@@ -82,6 +82,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
 }
 
 * {
@@ -90,5 +92,16 @@
 
 body {
   @apply bg-background text-foreground;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Headings use Inter (sans-serif) with tighter tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+}
+
+/* Mono font for numbers, IDs, and small details */
+.font-mono {
+  font-family: var(--font-mono);
 }

@@ -220,7 +220,7 @@ export default function TicketList() {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-muted-foreground text-sm">#{ticket.id}</span>
+                        <span className="text-muted-foreground text-sm font-mono">#{ticket.id}</span>
                         <Badge variant={ticket.priority} className="text-xs">
                           {PRIORITY_CONFIG[ticket.priority]?.label}
                         </Badge>
@@ -237,7 +237,7 @@ export default function TicketList() {
                       <div className="text-muted-foreground">
                         {ticket.assignee_name || 'Unassigned'}
                       </div>
-                      <div className="text-xs text-muted-foreground">
+                      <div className="text-xs text-muted-foreground font-mono">
                         {formatDistanceToNow(new Date(ticket.created_at), { addSuffix: true })}
                       </div>
                     </div>

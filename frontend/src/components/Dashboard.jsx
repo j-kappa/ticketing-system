@@ -18,9 +18,9 @@ import { formatDistanceToNow } from 'date-fns'
 
 function StatCard({ title, value, description, icon: Icon, variant }) {
   const colorClasses = {
-    blue: 'text-blue-600 bg-blue-100',
+    green: 'text-emerald-700 bg-emerald-100',
     yellow: 'text-yellow-600 bg-yellow-100',
-    green: 'text-green-600 bg-green-100',
+    teal: 'text-teal-600 bg-teal-100',
     gray: 'text-gray-600 bg-gray-100',
     red: 'text-red-600 bg-red-100',
   }
@@ -36,7 +36,7 @@ function StatCard({ title, value, description, icon: Icon, variant }) {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
+        <div className="text-2xl font-bold font-mono">{value}</div>
         {description && (
           <p className="text-xs text-muted-foreground mt-1">{description}</p>
         )}
@@ -116,7 +116,7 @@ export default function Dashboard() {
           value={stats.status.new || 0}
           description="Awaiting triage"
           icon={TicketIcon}
-          variant="blue"
+          variant="green"
         />
         <StatCard
           title="In Progress"
@@ -158,7 +158,7 @@ export default function Dashboard() {
                       <div className={`w-3 h-3 rounded-full ${config.color}`} />
                       <span className="text-sm font-medium">{config.label}</span>
                     </div>
-                    <Badge variant={key}>{count}</Badge>
+                    <Badge variant={key} className="font-mono">{count}</Badge>
                   </div>
                 )
               })}
@@ -179,7 +179,7 @@ export default function Dashboard() {
                 return (
                   <div key={key} className="flex items-center justify-between">
                     <span className="text-sm font-medium">{config.label}</span>
-                    <Badge variant="secondary">{count}</Badge>
+                    <Badge variant="secondary" className="font-mono">{count}</Badge>
                   </div>
                 )
               })}
@@ -205,7 +205,7 @@ export default function Dashboard() {
                     </div>
                     <span className="text-sm font-medium">{member.name}</span>
                   </div>
-                  <Badge variant="outline">{member.assigned_tickets}</Badge>
+                  <Badge variant="outline" className="font-mono">{member.assigned_tickets}</Badge>
                 </div>
               ))}
             </div>
@@ -241,14 +241,14 @@ export default function Dashboard() {
                     <div>
                       <p className="font-medium">{ticket.title}</p>
                       <p className="text-sm text-muted-foreground">
-                        #{ticket.id} opened by {ticket.reporter_name}
+                        <span className="font-mono">#{ticket.id}</span> opened by {ticket.reporter_name}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge variant={ticket.priority}>{PRIORITY_CONFIG[ticket.priority]?.label}</Badge>
                     <Badge variant={ticket.status}>{STATUS_CONFIG[ticket.status]?.label}</Badge>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-muted-foreground font-mono">
                       {formatDistanceToNow(new Date(ticket.created_at), { addSuffix: true })}
                     </span>
                   </div>

@@ -233,7 +233,7 @@ export default function TicketDetail() {
           </Button>
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-muted-foreground">#{ticket.id}</span>
+              <span className="text-muted-foreground font-mono">#{ticket.id}</span>
               <Badge variant={ticket.priority}>{PRIORITY_CONFIG[ticket.priority]?.label}</Badge>
               <Badge variant={ticket.status}>{STATUS_CONFIG[ticket.status]?.label}</Badge>
               <Badge variant="outline">{CATEGORY_CONFIG[ticket.category]?.label}</Badge>
@@ -320,7 +320,7 @@ export default function TicketDetail() {
                     <div key={note.id} className="p-4 rounded-lg bg-muted">
                       <div className="flex items-center justify-between mb-2">
                         <span className="font-medium">{note.author_name}</span>
-                        <span className="text-xs text-muted-foreground">
+                        <span className="text-xs text-muted-foreground font-mono">
                           {format(new Date(note.created_at), 'MMM d, yyyy h:mm a')}
                         </span>
                       </div>
@@ -383,7 +383,7 @@ export default function TicketDetail() {
                         <FileIcon mimetype={attachment.mimetype} />
                         <div>
                           <p className="font-medium text-sm">{attachment.original_name}</p>
-                          <p className="text-xs text-muted-foreground">
+                          <p className="text-xs text-muted-foreground font-mono">
                             {(attachment.size / 1024).toFixed(1)} KB
                           </p>
                         </div>
@@ -492,14 +492,14 @@ export default function TicketDetail() {
               
               <div>
                 <Label className="text-muted-foreground">Created</Label>
-                <p className="mt-1 text-sm">
+                <p className="mt-1 text-sm font-mono">
                   {format(new Date(ticket.created_at), 'MMM d, yyyy h:mm a')}
                 </p>
               </div>
-              
+
               <div>
                 <Label className="text-muted-foreground">Last Updated</Label>
-                <p className="mt-1 text-sm">
+                <p className="mt-1 text-sm font-mono">
                   {format(new Date(ticket.updated_at), 'MMM d, yyyy h:mm a')}
                 </p>
               </div>
